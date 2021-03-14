@@ -1,0 +1,11 @@
+<div class="container">
+<h2 class="art-title">Judul Artikel Nanti di Sini</h2>
+
+
+<p class="paragraphs">Suspendisse accumsan a nunc eu scelerisque. Donec nec imperdiet turpis. Maecenas posuere eleifend dapibus. Duis ac dolor eget elit scelerisque congue. Vivamus erat nibh, imperdiet sed mattis ut, egestas nec nisi. Nulla facilisi. Phasellus ut pellentesque mi, sed vehicula risus. Nulla sed ante ac metus aliquet feugiat at ultricies ipsum. Nulla consectetur, lacus ut sodales aliquet, tellus lacus vestibulum elit, et tincidunt mauris eros non lectus. Proin porta eget lorem feugiat gravida. Nam ante sem, vehicula a convallis vitae, pulvinar porttitor felis. Morbi tempus sapien quis tellus ornare volutpat. Vivamus congue pulvinar ultricies. Morbi sodales imperdiet arcu. Ut sagittis mi quis dui commodo, quis suscipit dui dignissim. Nam iaculis diam vitae nulla ultrices vehicula.</p>
+
+<p class="paragraphs">Pellentesque nisl arcu, varius quis velit vitae, luctus scelerisque urna. Fusce a pulvinar eros. Fusce libero metus, ultrices ut tortor vel, sodales interdum neque. Proin sit amet semper metus. Donec sodales enim at diam ultricies, sit amet suscipit massa congue. Donec a enim ante. Aliquam erat volutpat. Donec egestas libero sit amet ultricies sodales. Aenean porttitor fringilla finibus. Proin non convallis tortor. Sed neque justo, laoreet ac augue sed, posuere pellentesque tellus. Curabitur vel ornare dolor. Phasellus congue sem non tempus vulputate. Vivamus semper egestas eros, sit amet condimentum nunc maximus sit amet. Integer finibus diam eget euismod bibendum. Phasellus interdum nisi sed felis finibus porta.</p>
+
+<p class="paragraphs">Donec orci ligula, efficitur et bibendum non, consectetur ut justo. Sed est sem, consectetur at sapien non, lobortis fringilla neque. Nulla facilisi. Integer arcu metus, condimentum vel consectetur non, lacinia vitae magna. Aliquam ut ligula tempus neque eleifend consequat. Sed tincidunt facilisis turpis posuere sagittis. Fusce nec mauris quis risus iaculis suscipit cursus vitae augue. Quisque fringilla urna tellus, ut convallis sem porttitor in. Morbi non sapien ipsum. Duis nunc magna, condimentum vitae ullamcorper nec, fringilla ac arcu. </p>
+
+</div>

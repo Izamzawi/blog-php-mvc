@@ -1,0 +1,11 @@
+{
+    "name": "izamzawi/blog-php-mvc",
+    "description": "A simple blog back-end, with CRUD for posts and 3rd party editor, created based on PHP MVC.",
+    "authors": [
+        {
+            "name": "Idham Z",
+            "email": "idhamzamzawi@gmail.com"
+        }
+    ],
+    "require": {}
+}

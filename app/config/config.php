@@ -1,10 +1,10 @@
 <?php 
 
-//url absolute
-define('BASEURL', 'http://localhost/portofolio/setilisti/public');
-define('APPURL', 'http://localhost/portofolio/setilisti/app');
+// URL absolute
+define('BASEURL', 'http://localhost/proyek/setilisti/public');
+define('APPURL', 'http://localhost/proyek/setilisti/app');
 
-//DB
+// Database parameter
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');

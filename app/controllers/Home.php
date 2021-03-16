@@ -2,14 +2,12 @@
 
 class Home extends Controller{
     public function index(){
-        $data['judul'] = 'Home';
-        $data['article'] = $this->model('Article_model')->getArticleAll();
+        $data['page'] = 'Home';
+        $data['posts'] = $this->model('Post_model')->getPostAll();
         $this->view('templates/header', $data);
         $this->view('home/index', $data);
         $this->view('templates/footer');
-    }
-
-    
+    }    
 }
 
 

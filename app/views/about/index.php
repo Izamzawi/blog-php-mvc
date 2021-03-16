@@ -1,5 +1,5 @@
 <div class="container mt-3">
     <h1>About me</h1>
-    <p>Halo, nama saya Seti Listiani.</p>
+    <p>Selamat datang di blog saya.</p>
 
 </div>    

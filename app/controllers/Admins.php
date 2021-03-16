@@ -1,14 +1,14 @@
 <?php
 
-class Users extends Controller {
+class Admins extends Controller {
     public function __construct(){
-        $this->userModel = $this->model('User_model');
+        $this->adminModel = $this->model('Admin_model');
     }
 
-    // Enable to add new user
+    // Enable to add new admin
     public function register(){
         $data = [
-            'page' => 'Register New User',
+            'page' => 'Register New Admin',
             'username' => '',
             'email' => '',
             'password' => '',
@@ -38,21 +38,21 @@ class Users extends Controller {
             $nameValidation = "/^[a-zA-Z0-9]*$/";
             $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
 
-            //Validate username on letters/numbers
+            // Validate username on letters/numbers
             if(empty($data['username'])) {
                 $data['usernameError'] = 'Please enter username.';
             } elseif(!preg_match($nameValidation, $data['username'])) {
                 $data['usernameError'] = 'Name can only contain letters and numbers.';
             }
 
-            //Validate email
+            // Validate email
             if(empty($data['email'])){
                 $data['emailError'] = 'Please enter email address.';
             } elseif(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                 $data['emailError'] = 'Please enter the correct format.';
             } else{
                 //Check if email exists.
-                if ($this->userModel->findUserByEmail($data['email'])) {
+                if ($this->adminModel->findAdminByEmail($data['email'])) {
                 $data['emailError'] = 'Email is already taken.';
                 }
             }
@@ -60,7 +60,7 @@ class Users extends Controller {
             // Validate password on length, numeric values,
             if(empty($data['password'])){
               $data['passwordError'] = 'Please enter password.';
-            } elseif(strlen($data['password']) < 6){
+            } elseif(strlen($data['password']) < 7){
               $data['passwordError'] = 'Password must be at least 8 characters';
             } elseif (preg_match($passwordValidation, $data['password'])) {
               $data['passwordError'] = 'Password must be have at least one numeric value.';
@@ -81,10 +81,10 @@ class Users extends Controller {
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-                //Register user from model function
-                if($this->userModel->register($data)){
-                    //Redirect to the login page
-                    header('location: ' . URLROOT . '/users/login');
+                // Register admin from model function
+                if($this->adminModel->register($data)){
+                    // Redirect to the login page
+                    header('location: ' . BASEURL . '/admins/signin');
                 } else {
                     die('Something went wrong.');
                 }
@@ -92,7 +92,7 @@ class Users extends Controller {
         }
 
         $this->view('templates/header', $data);
-        $this->view('users/register', $data);
+        $this->view('admin/register', $data);
         $this->view('templates/footer');
     }
 
@@ -105,9 +105,8 @@ class Users extends Controller {
             'passwordError' => ''
         ];
 
-        //Check for post
+        // Check for POST method
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
@@ -116,26 +115,28 @@ class Users extends Controller {
                 'usernameError' => '',
                 'passwordError' => '',
             ];
-            //Validate username
+
+            // Validate username
             if (empty($data['username'])) {
                 $data['usernameError'] = 'Please enter a username.';
             }
 
-            //Validate password
+            // Validate password
             if (empty($data['password'])) {
                 $data['passwordError'] = 'Please enter a password.';
             }
 
-            //Check if all errors are empty
+            // Check if no errors occured
             if (empty($data['usernameError']) && empty($data['passwordError'])) {
-                $loggedInUser = $this->userModel->signin($data['username'], $data['password']);
+                $loggedInAdmin = $this->adminModel->signin($data['username'], $data['password']);
+                // var_dump($loggedInAdmin);
 
-                if ($loggedInUser) {
-                    $this->createUserSession($loggedInUser);
+                if ($loggedInAdmin) {
+                    $this->createAdminSession($loggedInAdmin);
                 } else {
                     $data['passwordError'] = 'Password or username is incorrect. Please try again.';
 
-                    $this->view('users/signin', $data);
+                    $this->view('admin/signin', $data);
                 }
             }
 
@@ -149,23 +150,23 @@ class Users extends Controller {
         }
 
         $this->view('templates/header', $data);
-        $this->view('users/signin', $data);
+        $this->view('admin/signin', $data);
         $this->view('templates/footer');
     }
 
-    // Create a session for logged user
-    public function createUserSession($user){
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['username'] = $user->username;
-        $_SESSION['email'] = $user->email;
-        header( 'location:' . URLROOT . '/pages/index' );
+    // Create a session for logged admin
+    public function createAdminSession($admin){
+        $_SESSION['admin_id'] = $admin['id'];
+        $_SESSION['username'] = $admin['username'];
+        $_SESSION['email'] = $admin['email'];
+        header( 'location:' . BASEURL . '/home' );
     }
 
     // Clear session after logout
     public function signout(){
-        unset($_SESSION['user_id']);
+        unset($_SESSION['admin_id']);
         unset($_SESSION['username']);
         unset($_SESSION['email']);
-        header( 'location:' . URLROOT . '/users/login' );
+        header( 'location:' . BASEURL . '/home' );
     }
 }

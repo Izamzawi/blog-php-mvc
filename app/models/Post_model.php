@@ -26,7 +26,7 @@ class Post_model{
 
     // Add new post
     public function addPost($data){
-        $query = "INSERT INTO ' . $this->table . ' VALUES('', :title, :name, :content)";
+        $query = 'INSERT INTO ' . $this->table . ' VALUES(\'\', :title, :name, :content)';
 
         $this->db->query($query);
         $this->db->bind( 'title', $data['title'] );
@@ -40,7 +40,7 @@ class Post_model{
 
     // Edit an existing post
     public function updatePost($data){
-        $query = "UPDATE ' . $this->table . ' SET title = :title, content = :content WHERE id = :id";
+        $query = 'UPDATE ' . $this->table . ' SET title = :title, content = :content WHERE id = :id';
 
         $this->db->query($query);
         $this->db->bind( 'id', $data['id'] );

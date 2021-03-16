@@ -1,6 +1,6 @@
 <div class="container">
     <?php if(isLoggedIn()): ?>
-        <a class="btn green" href="<?= APPURL; ?>/posts/create">
+        <a class="btn green" href="<?= BASEURL; ?>/posts/create">
             Create
         </a>
     <?php endif; ?>

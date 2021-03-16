@@ -1,3 +1,4 @@
+<?= var_dump($_SESSION); ?>
 <div class="container">
 
     <form class="mx-auto" action="" method="post" style="width: 400px;">
@@ -10,7 +11,7 @@
         </div>
         <button type="submit" name="signin" id="signin" class="btn btn-primary" style="width: 400px; font-size: 20px">Signin</button>
 
-        <p class="mt-3">Not registered yet? <a href="<?= BASEURL; ?>/users/register">Create an account.</a></p>
+        <p class="mt-3">Not registered yet? <a href="<?= BASEURL; ?>/admins/register">Create an account.</a></p>
     </form>
 
 

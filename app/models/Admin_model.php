@@ -1,16 +1,16 @@
 <?php
 
-class User_model {
-    private $table = 'users';
+class Admin_model {
+    private $table = 'admins';
     private $db;
 
     public function __construct(){
         $this->db = new Database;
     }
 
-    // Register a new user to access posts
+    // Register a new admin to access posts
     public function register($data){
-        $query = "INSERT INTO ' . $this->table . ' (username, email, password) VALUES(:username, :email, :password)";
+        $query = 'INSERT INTO ' . $this->table . ' (username, email, password) VALUES(:username, :email, :password)';
 
         $this->db->query($query);
         $this->db->bind( 'username', $data['username'] );
@@ -22,27 +22,27 @@ class User_model {
         return $this->db->rowCount();
     }
 
-    // Retrieve and verify user login
+    // Retrieve and verify admin login
     public function signin($username, $password){
-        $query = ("SELECT * FROM ' . $this->table . ' WHERE username = :username");
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE username = :username');
 
-        $this->db->query($query);
         $this->db->bind( 'username', $username );
 
-        $result = $this->db->single();
+        $row = $this->db->single();
 
-        $hashedPassword = $result->password;
+        // Assign stored hashed password to a variable for password verify
+        $hashedPassword = $row['password'];
 
         if(password_verify($password, $hashedPassword)) {
-            return $result;
+            return $row;
         } else{
             return false;
         }
     }
 
-    // Check if email already used by another registered user
-    public function findUserByEmail($email){
-        $query = "SELECT * FROM users WHERE email = :email";
+    // Check if email already used by another registered admin
+    public function findAdminByEmail($email){
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE email = :email';
 
         $this->db->query($query);
         $this->db->bind( 'email', $email );

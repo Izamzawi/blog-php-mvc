@@ -15,10 +15,10 @@
             <a class="nav-item nav-link" href="<?= BASEURL; ?>">Home<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="<?= BASEURL; ?>/posts">Post</a>
             <a class="nav-item nav-link" href="<?= BASEURL; ?>/about">About me</a>
-            <?php if(isset($_SESSION['user_id'])) : ?>
-                <a class="nav-item nav-link" href="<?= BASEURL; ?>/users/signout">Log out</a>
+            <?php if(isset($_SESSION['admin_id'])) : ?>
+                <a class="nav-item nav-link" href="<?= BASEURL; ?>/admins/signout">Log out</a>
             <?php else : ?>
-                <a class="nav-item nav-link" href="<?= BASEURL; ?>/users/signin">Login</a>
+                <a class="nav-item nav-link" href="<?= BASEURL; ?>/admins/signin">Login</a>
             <?php endif; ?>
         </div>
     </div>

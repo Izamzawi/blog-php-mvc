@@ -15,7 +15,7 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="<?= BASEURL; ?>/posts/post/<?= $post['slug']; ?>"><?= $post['title']; ?></a>
+                            <a href="<?= BASEURL; ?>/posts/read/<?= $post['name']; ?>"><?= $post['title']; ?></a>
                         </h5>
                         <p class="card-text"><?= SUBSTR($post['content'], 0, 100); ?></p>
                     </div>

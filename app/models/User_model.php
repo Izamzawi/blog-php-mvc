@@ -23,7 +23,7 @@ class User_model {
     }
 
     // Retrieve and verify user login
-    public function login($username, $password){
+    public function signin($username, $password){
         $query = ("SELECT * FROM ' . $this->table . ' WHERE username = :username");
 
         $this->db->query($query);

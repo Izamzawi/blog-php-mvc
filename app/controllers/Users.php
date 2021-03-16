@@ -1,12 +1,12 @@
 <?php
 
 class Users extends Controller {
-    public function __construct() {
+    public function __construct(){
         $this->userModel = $this->model('User_model');
     }
 
     // Enable to add new user
-    public function register() {
+    public function register(){
         $data = [
             'page' => 'Register New User',
             'username' => '',
@@ -96,9 +96,9 @@ class Users extends Controller {
         $this->view('templates/footer');
     }
 
-    public function login() {
+    public function signin(){
         $data = [
-            'page' => 'Login Page',
+            'page' => 'Sign-in Page',
             'username' => '',
             'password' => '',
             'usernameError' => '',
@@ -128,14 +128,14 @@ class Users extends Controller {
 
             //Check if all errors are empty
             if (empty($data['usernameError']) && empty($data['passwordError'])) {
-                $loggedInUser = $this->userModel->login($data['username'], $data['password']);
+                $loggedInUser = $this->userModel->signin($data['username'], $data['password']);
 
                 if ($loggedInUser) {
                     $this->createUserSession($loggedInUser);
                 } else {
                     $data['passwordError'] = 'Password or username is incorrect. Please try again.';
 
-                    $this->view('users/login', $data);
+                    $this->view('users/signin', $data);
                 }
             }
 
@@ -149,7 +149,7 @@ class Users extends Controller {
         }
 
         $this->view('templates/header', $data);
-        $this->view('users/login', $data);
+        $this->view('users/signin', $data);
         $this->view('templates/footer');
     }
 
@@ -162,7 +162,7 @@ class Users extends Controller {
     }
 
     // Clear session after logout
-    public function logout(){
+    public function signout(){
         unset($_SESSION['user_id']);
         unset($_SESSION['username']);
         unset($_SESSION['email']);

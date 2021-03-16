@@ -10,27 +10,27 @@ class Post_model{
 
     // Get all post from database
     public function getPostAll(){
-        $this->db->query("SELECT * FROM " . $this->table);
+        $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
 
     // Get requested post by article name
-    public function getPostbySlug($slug){
-        $query = "SELECT * FROM ' . $this->table . ' WHERE slug=:slug";
+    public function getPostbyName($name){
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE name=:name';
         
         $this->db->query($query);
-        $this->db->bind( 'slug', $slug );
+        $this->db->bind( 'name', $name );
         
         return $this->db->single();
     }
 
     // Add new post
     public function addPost($data){
-        $query = "INSERT INTO ' . $this->table . ' VALUES('', :title, :slug, :content)";
+        $query = "INSERT INTO ' . $this->table . ' VALUES('', :title, :name, :content)";
 
         $this->db->query($query);
         $this->db->bind( 'title', $data['title'] );
-        $this->db->bind( 'slug', $data['slug'] );
+        $this->db->bind( 'name', $data['name'] );
         $this->db->bind( 'content', $data['content'] );
 
         $this->db->execute();
@@ -45,7 +45,7 @@ class Post_model{
         $this->db->query($query);
         $this->db->bind( 'id', $data['id'] );
         $this->db->bind( 'title', $data['title'] );
-        $this->db->bind( 'slug', $data['slug'] );
+        $this->db->bind( 'name', $data['name'] );
         $this->db->bind( 'content', $data['content'] );
 
         $this->db->execute();

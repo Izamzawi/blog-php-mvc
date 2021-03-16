@@ -1,32 +1,43 @@
 <div class="container">
-    <div class="wrapper-login">
-        <h2>Register</h2>
 
-            <form id="register-form" method="POST" action="<?= APPURK; ?>/users/register"
-                >
-            <input type="text" placeholder="Username" name="username">
-            <span class="invalidFeedback">
-                <?= $data['usernameError']; ?>
-            </span>
+        <form class="mx-auto" action="" method="post" style="width: 550px;">
+            <h2 class="text-center my-3">Register here</h2>
 
-            <input type="email" placeholder="Enter a valid email" name="email">
-            <span class="invalidFeedback">
-                <?= $data['emailError']; ?>
-            </span>
+            <label for="username">Choose a username</label>
+            <div class="input-group mb-1">
+                <input type="text" placeholder="Username here" name="username" class="form-control" id="username" aria-label="Username">
+                <span class="invalidFeedback">
+                    <?= $data['usernameError']; ?>
+                </span>        
+            </div>
 
-            <input type="password" placeholder="Password" name="password">
-            <span class="invalidFeedback">
-                <?= $data['passwordError']; ?>
-            </span>
+            <label for="email">Enter a valid email</label>
+            <div class="input-group mb-1">
+                <input type="email" placeholder="Email here" name="email" class="form-control" id="email" aria-label="Email">
+                <span class="invalidFeedback">
+                    <?= $data['emailError']; ?>
+                </span>
+            </div>
 
-            <input type="password" placeholder="Re-type password" name="confirmPassword">
-            <span class="invalidFeedback">
-                <?= $data['confirmPasswordError']; ?>
-            </span>
+            <label for="password">Type your password</label>
+            <div class="input-group mb-1">
+                <input type="password" placeholder="Password here" name="password" class="form-control" id="password" aria-label="password">
+                <span class="invalidFeedback">
+                    <?= $data['passwordError']; ?>
+                </span>
+            </div>
 
-            <button id="submit" type="submit" value="submit">Submit</button>
+            <label for="confirmPassword">Re-type password</label>
+            <div class="input-group mb-1">
+                <input type="password" placeholder="Password confirmation" name="confirmPassword" class="form-control" id="confirmPassword" aria-label="password">
+                <span class="invalidFeedback">
+                    <?= $data['confirmPasswordError']; ?>
+                </span>
+            </div>
 
-            <p class="options">Not registered yet? <a href="<?= APPURK; ?>/users/register">Create an account!</a></p>
+            <button type="submit" id="submit" name="submit" value="submit" class="btn btn-primary mt-2" style="width: 550px; font-size: 20px">Submit</button>
+
+            <p class="mt-3">Already registered? <a href="<?= APPURK; ?>/users/sigin">Sign-in here.</a></p>
         </form>
     </div>
 </div>

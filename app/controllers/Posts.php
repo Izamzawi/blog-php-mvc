@@ -15,13 +15,13 @@ class Posts extends Controller{
     }
 
     // Show a specific post
-    public function post($slug){
-        $post = $this->postModel->getPostbySlug($slug);
+    public function read($name){
+        $post = $this->postModel->getPostbyName($name);
 
         $data['page'] = $post['title'];
         $data['posts'] = $post;
         $this->view('templates/header', $data);
-        $this->view('posts/post', $data);
+        $this->view('posts/read', $data);
         $this->view('templates/footer');
     }
 

@@ -21,7 +21,7 @@
                         <h5 class="card-title"><?= $post['title']; ?></h5>
                         <p class="card-text"><?= SUBSTR($post['content'], 0, 100); ?></p>
                         <p class="card-text"><small class="text-muted">
-                        <a href="<?= BASEURL; ?>/posts/post/<?= $post['slug']; ?>">Selengkapnya...</a>
+                        <a href="<?= BASEURL; ?>/posts/read/<?= $post['name']; ?>">Selengkapnya...</a>
                         </small></p>
                     </div>
                 </div>

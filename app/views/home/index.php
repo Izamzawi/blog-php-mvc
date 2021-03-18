@@ -4,12 +4,13 @@
         <p class="lead">Mari berkenalan melalui tulisan.</p>
         <hr class="my-4">
         <p>Selamat membaca.</p>
-        <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
     </div>
 
     <div class="container-lg">
 
-        <?php foreach($data['posts'] as $post ) : ?>
+        <!-- This PHP tag will loop through post database and the $i variable will limit the shown posts to 5 -->
+        <?php $i=1; ?>
+        <?php foreach($data['posts'] as $post ) : if($i == 5) break; ?>
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
                 <!-- section for image, not yet written
@@ -27,6 +28,7 @@
                 </div>
             </div>
         </div>
+        <?php $i++; ?>
         <?php endforeach; ?>
 
     </div>

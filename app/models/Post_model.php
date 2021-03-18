@@ -10,16 +10,26 @@ class Post_model{
 
     // Get all post from database
     public function getPostAll(){
-        $this->db->query('SELECT * FROM ' . $this->table);
+        $this->db->query('SELECT * FROM ' . $this->table . ' ORDER BY id DESC');
         return $this->db->resultSet();
     }
 
-    // Get requested post by article name
+    // Get requested post by custom link
     public function getPostbyName($name){
         $query = 'SELECT * FROM ' . $this->table . ' WHERE name=:name';
         
         $this->db->query($query);
         $this->db->bind( 'name', $name );
+        
+        return $this->db->single();
+    }
+
+    // Get requested post by post id
+    public function getPostbyId($id){
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE id=:id';
+        
+        $this->db->query($query);
+        $this->db->bind( 'id', $id );
         
         return $this->db->single();
     }
@@ -40,7 +50,7 @@ class Post_model{
 
     // Edit an existing post
     public function updatePost($data){
-        $query = 'UPDATE ' . $this->table . ' SET title = :title, content = :content WHERE id = :id';
+        $query = 'UPDATE ' . $this->table . ' SET title = :title, name = :name, content = :content WHERE id = :id';
 
         $this->db->query($query);
         $this->db->bind( 'id', $data['id'] );
@@ -55,8 +65,9 @@ class Post_model{
 
     // Delete an existing post
     public function deletePost($id){
-        $this->db->query('DELETE FROM posts WHERE id = :id');
-
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+        
+        $this->db->query($query);
         $this->db->bind( 'id', $id );
 
         $this->db->execute();

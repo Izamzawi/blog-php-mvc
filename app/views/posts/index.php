@@ -1,7 +1,9 @@
 <div class="container">
+
+    <h2 class="mx-3">Semua Post</h2>
     <?php if(isLoggedIn()): ?>
-        <a class="btn green" href="<?= BASEURL; ?>/posts/create">
-            Create
+        <a class="d-block mx-3 my-3" href="<?= BASEURL; ?>/posts/addnew">
+            <button type="button" class="btn btn-primary">Write New Post</button>
         </a>
     <?php endif; ?>
 
@@ -17,7 +19,15 @@
                         <h5 class="card-title">
                             <a href="<?= BASEURL; ?>/posts/read/<?= $post['name']; ?>"><?= $post['title']; ?></a>
                         </h5>
-                        <p class="card-text"><?= SUBSTR($post['content'], 0, 100); ?></p>
+                        <p class="card-text"><?= SUBSTR($post['content'], 0, 100); ?>...</p>
+                        <?php if(isLoggedIn()): ?>
+                        <a href="<?= BASEURL; ?>/posts/edit/<?= $post['id']; ?>" class="mr-2">
+                            <button type="button" class="btn btn-warning">Edit</button>
+                        </a>
+                        <a href="<?= BASEURL; ?>/posts/delete/<?= $post['id']; ?>">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

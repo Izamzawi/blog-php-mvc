@@ -98,7 +98,7 @@ class Admins extends Controller {
 
     public function signin(){
         $data = [
-            'page' => 'Sign-in Page',
+            'page' => 'Register New Admin',
             'username' => '',
             'password' => '',
             'usernameError' => '',
@@ -106,7 +106,7 @@ class Admins extends Controller {
         ];
 
         // Check for POST method
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
@@ -129,19 +129,19 @@ class Admins extends Controller {
             // Check if no errors occured
             if (empty($data['usernameError']) && empty($data['passwordError'])) {
                 $loggedInAdmin = $this->adminModel->signin($data['username'], $data['password']);
-                // var_dump($loggedInAdmin);
 
                 if ($loggedInAdmin) {
                     $this->createAdminSession($loggedInAdmin);
                 } else {
                     $data['passwordError'] = 'Password or username is incorrect. Please try again.';
 
-                    $this->view('admin/signin', $data);
+                    // $this->view('admin/signin', $data);
                 }
             }
 
-        } else {
+        } else{
             $data = [
+                'page' => 'Register New Admin',
                 'username' => '',
                 'password' => '',
                 'usernameError' => '',

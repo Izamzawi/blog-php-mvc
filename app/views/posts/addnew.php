@@ -1,47 +1,31 @@
-<?php 
+<script src="<?= APPURL; ?>/assets/ckeditor/ckeditor.js"></script>
 
-include_once 'submit.php';
-?>
+<div class="container mx-auto" style="width: 625px;">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tes WYSIWYG</title>
+    <div class="editor">
+        <h2 class="text-center my-3">Write your post here</h2>
 
-    <link rel="stylesheet" href="style.css">
-    <script src="<?= APPURL; ?>/assets/ckeditor/ckeditor.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="editor">
-            <h2>WYSIWYG Content Editor</h2>
-
-            <?php if( !empty( $statusMsg )) { ?>
-            <p class="statmsg"><?= $statusMsg ?></p>
-            <?php } ?>
-
-            <form action="" method="post">
-                <textarea name="editor" id="editor" cols="50" rows="10">
-                    Ini textarea yang akan diubah oleh editor.
-                </textarea>
-                <input type="submit" value="submit" name="submit" >
-            </form>
-        </div>
-
-        <?php if( !empty( $editorContent )){ ?>
-        <div class="ins-cont">
-            <h4>Content</h4>
-            <?= $editorContent; ?>
-        </div>
-        <?php } ?>
-
+        <form class="mx-auto" action="" method="post" style="width: 600px;">
+            <div class="input-group mb-2">
+                <input type="text" name="title" id="title" class="form-control" placeholder="Post title" aria-label="Post title" aria-describedby="basic-addon1">
+            </div>
+            <textarea name="content" id="content" cols="75" rows="40" placeholder="You can write your post here.">
+            </textarea>
+            <button type="submit" class="btn btn-primary mt-2" style="font-size: 16px;">Submit post</button>
+        </form>
+        <p class="my-3 text-danger"> 
+            <span class="invalidFeedback">
+                <?= $data['titleError']; ?>
+                <?= $data['contentError']; ?>
+            </span>
+         </p>
     </div>
+
+</div>
 
 <!-- CKeditor to textarea -->
 <script>
-    CKEDITOR.replace( 'editor' );
+    CKEDITOR.replace( 'content' );
 </script>
 
 </body>

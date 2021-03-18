@@ -1,8 +1,12 @@
-<?= var_dump($_SESSION); ?>
 <div class="container">
-
     <form class="mx-auto" action="" method="post" style="width: 400px;">
         <h2 class="text-center my-3">Sign-in here</h2>
+        <p class="text-danger"> 
+            <span class="invalidFeedback text-danger">
+                <?= $data['usernameError']; ?>
+                <?= $data['passwordError']; ?>
+            </span>        
+         </p>
         <div class="input-group">
             <input type="text" name="username" id="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
         </div>

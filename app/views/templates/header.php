@@ -16,9 +16,9 @@
             <a class="nav-item nav-link" href="<?= BASEURL; ?>/posts">Post</a>
             <a class="nav-item nav-link" href="<?= BASEURL; ?>/about">About me</a>
             <?php if(isset($_SESSION['admin_id'])) : ?>
-                <a class="nav-item nav-link" href="<?= BASEURL; ?>/admins/signout">Log out</a>
+                <a class="nav-item nav-link" href="<?= BASEURL; ?>/admins/signout">Sign out</a>
             <?php else : ?>
-                <a class="nav-item nav-link" href="<?= BASEURL; ?>/admins/signin">Login</a>
+                <a class="nav-item nav-link" href="<?= BASEURL; ?>/admins/signin">Sign in</a>
             <?php endif; ?>
         </div>
     </div>

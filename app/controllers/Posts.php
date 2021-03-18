@@ -35,29 +35,31 @@ class Posts extends Controller{
         $data = [
             'page' => 'Write your new post',
             'title' => '',
+            'name' => '',
             'content' => '',
             'titleError' => '',
             'contentError' => ''
         ];
 
         // Receive post's data
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            // $_POST['title'] = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'user_id' => $_SESSION['user_id'],
                 'title' => trim($_POST['title']),
-                'content' => $_POST['content'],
+                'content' => trim($_POST['content']),
+                'name' => str_replace(' ', '-', strtolower(substr($_POST['title'], 0, 20))),
                 'titleError' => '',
                 'contentError' => ''
             ];
 
+            // Check if title or content is empty
             if(empty($data['title'])) {
-                $data['titleError'] = 'The title of a post cannot be empty';
+                $data['titleError'] = 'The title of a post cannot be empty.';
             }
 
             if(empty($data['content'])) {
-                $data['contentError'] = 'The content of a post cannot be empty';
+                $data['contentError'] = 'The content of a post cannot be empty.';
             }
 
             // No error from data checking
@@ -67,9 +69,16 @@ class Posts extends Controller{
                 } else{
                     die("Something went wrong, please try again!");
                 }
-            } else{
-                $this->view('posts/addnew', $data);
             }
+
+        } else{
+            $data = [
+                'title' => '',
+                'name' => '',
+                'content' => '',
+                'titleError' => '',
+                'contentError' => ''
+            ];    
         }
 
         $this->view('templates/header', $data);
@@ -79,32 +88,32 @@ class Posts extends Controller{
 
     // Edit the content of an existing post
     public function edit($id){
-        $post = $this->postModel->findPostById($id);
-
         // Check for user's session
         if(!isLoggedIn()){
             header("Location: " . BASEURL . "/posts");
-        } elseif($post->user_id != $_SESSION['user_id']){
-            header("Location: " . BASEURL . "/posts");
         }
+
+        $post = $this->postModel->getPostbyId($id);
 
         $data = [
             'page' => 'Edit this post',
             'post' => $post,
             'title' => '',
+            'name' => '',
             'content' => '',
             'titleError' => '',
             'contentError' => ''
         ];
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
                 'id' => $id,
                 'post' => $post,
-                'user_id' => $_SESSION['user_id'],
+                'admin_id' => $_SESSION['admin_id'],
                 'title' => trim($_POST['title']),
+                'name' => str_replace(' ', '-', strtolower(substr($_POST['title'], 0, 20))),
                 'content' => $_POST['content'],
                 'titleError' => '',
                 'contentError' => ''
@@ -125,9 +134,8 @@ class Posts extends Controller{
                 } else{
                     die("Something went wrong, please try again!");
                 }
-            } else{
-                $this->view('posts/edit', $data);
             }
+
         }
 
         $this->view('templates/header', $data);
@@ -136,27 +144,15 @@ class Posts extends Controller{
     }
 
     public function delete($id) {
-        $post = $this->postModel->findPostById($id);
-
         if(!isLoggedIn()) {
-            header("Location: " . BASEURL . "/posts");
-        } elseif($post->user_id != $_SESSION['user_id']){
             header("Location: " . BASEURL . "/posts");
         }
 
-        $data = [
-            'post' => $post,
-            'id' => $id,
-        ];
-
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-            if($this->postModel->deletePost($id)) {
-                header("Location: " . BASEURL . "/posts");
-            } else {
-                die('Something went wrong!');
-            }
+        if($this->postModel->deletePost($id)) {
+            header("Location: " . BASEURL . "/posts");
+            exit;
+        } else {
+            die('Something went wrong!');
         }
     }
 

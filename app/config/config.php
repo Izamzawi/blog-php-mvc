@@ -1,13 +1,13 @@
 <?php 
 
 // URL absolute
-define('BASEURL', 'http://localhost/blog-php-mvc/public');
-define('APPURL', 'http://localhost/blog-php-mvc/app');
+define('BASEURL', 'http://localhost/blog-php-mvc-local/public');
+define('APPURL', 'http://localhost/blog-php-mvc-local/app');
 
 // Database parameter
-define('DB_HOST', 'db4free.net');
-define('DB_USER', 'asuspavs');
-define('DB_PASS', 'phpdeveloper');
-define('DB_NAME', 'php_blog_posts');
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'portofolio');
 
 ?>

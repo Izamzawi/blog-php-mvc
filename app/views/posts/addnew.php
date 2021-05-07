@@ -1,5 +1,3 @@
-<script src="<?= APPURL; ?>/assets/ckeditor/ckeditor.js"></script>
-
 <div class="container mx-auto" style="width: 625px;">
 
     <div class="editor">

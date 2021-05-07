@@ -10,13 +10,9 @@
 
         <!-- This PHP tag will loop through post database and the $i variable will limit the shown posts to 5 -->
         <?php $i=1; ?>
-        <?php foreach($data['posts'] as $post ) : if($i == 5) break; ?>
+        <?php foreach($data['posts'] as $post ) : if($i >= 5) break; ?>
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
-                <!-- section for image, not yet written
-                <div class="col-md-4">
-                    <img src="..." class="card-img" alt="...">
-                </div> -->
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title"><?= $post['title']; ?></h5>

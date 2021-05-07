@@ -55,11 +55,11 @@ class Posts extends Controller{
 
             // Check if title or content is empty
             if(empty($data['title'])) {
-                $data['titleError'] = 'The title of a post cannot be empty.';
+                $data['titleError'] = 'The title of a post cannot be empty. Please refresh the page.';
             }
 
             if(empty($data['content'])) {
-                $data['contentError'] = 'The content of a post cannot be empty.';
+                $data['contentError'] = 'The content of a post cannot be empty. Please refresh the page.';
             }
 
             // No error from data checking
@@ -71,14 +71,6 @@ class Posts extends Controller{
                 }
             }
 
-        } else{
-            $data = [
-                'title' => '',
-                'name' => '',
-                'content' => '',
-                'titleError' => '',
-                'contentError' => ''
-            ];    
         }
 
         $this->view('templates/header', $data);

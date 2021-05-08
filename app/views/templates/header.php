@@ -14,12 +14,12 @@
         <a class="navbar-brand" href="<?= BASEURL; ?>">BLOG</a>
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="<?= BASEURL; ?>">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="<?= BASEURL; ?>/posts">Post</a>
-            <a class="nav-item nav-link" href="<?= BASEURL; ?>/about">About me</a>
+            <a class="nav-item nav-link" href="<?= BASEURL; ?>/Posts">Post</a>
+            <a class="nav-item nav-link" href="<?= BASEURL; ?>/About">About me</a>
             <?php if(isset($_SESSION['admin_id'])) : ?>
-                <a class="nav-item nav-link" href="<?= BASEURL; ?>/admins/signout">Sign out</a>
+                <a class="nav-item nav-link" href="<?= BASEURL; ?>/Admins/signout">Sign out</a>
             <?php else : ?>
-                <a class="nav-item nav-link" href="<?= BASEURL; ?>/admins/signin">Sign in</a>
+                <a class="nav-item nav-link" href="<?= BASEURL; ?>/Admins/signin">Sign in</a>
             <?php endif; ?>
         </div>
     </div>

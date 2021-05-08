@@ -35,6 +35,6 @@
         </div>
 
         <button type="submit" id="submit" name="submit" value="submit" class="btn btn-primary mt-2" style="width: 550px; font-size: 20px">Submit</button>
-        <p class="mt-3">Already registered? <a href="<?= BASEURL; ?>/admins/sigNin">Sign-in here.</a></p>
+        <p class="mt-3">Already registered? <a href="<?= BASEURL; ?>/Admins/sigNin">Sign-in here.</a></p>
     </form>
 </div>

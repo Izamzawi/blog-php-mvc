@@ -29,7 +29,7 @@ class Posts extends Controller{
     public function addnew(){
         // Check for user's session
         if(!isLoggedIn()) {
-            header("Location: " . BASEURL . "/posts");
+            header("Location: " . BASEURL . "/Posts");
         }
 
         $data = [
@@ -65,7 +65,7 @@ class Posts extends Controller{
             // No error from data checking
             if(empty($data['titleError']) && empty($data['contentError'])){
                 if($this->postModel->addPost($data)){
-                    header("Location: " . BASEURL . "/posts");
+                    header("Location: " . BASEURL . "/Posts");
                 } else{
                     die("Something went wrong, please try again!");
                 }
@@ -81,7 +81,7 @@ class Posts extends Controller{
     public function edit($id){
         // Check for user's session
         if(!isLoggedIn()){
-            header("Location: " . BASEURL . "/posts");
+            header("Location: " . BASEURL . "/Posts");
         }
 
         $post = $this->postModel->getPostbyId($id);
@@ -121,7 +121,7 @@ class Posts extends Controller{
             // Check for no error
             if(empty($data['titleError']) && empty($data['bodyError'])){
                 if($this->postModel->updatePost($data) > -1){
-                    header("Location: " . BASEURL . "/posts");
+                    header("Location: " . BASEURL . "/Posts");
                 } else{
                     die("Something went wrong, please try again!");
                 }
@@ -136,11 +136,11 @@ class Posts extends Controller{
 
     public function delete($id) {
         if(!isLoggedIn()) {
-            header("Location: " . BASEURL . "/posts");
+            header("Location: " . BASEURL . "/Posts");
         }
 
         if($this->postModel->deletePost($id)) {
-            header("Location: " . BASEURL . "/posts");
+            header("Location: " . BASEURL . "/Posts");
             exit;
         } else {
             die('Something went wrong!');

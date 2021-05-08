@@ -1,7 +1,7 @@
 <div class="container">
     <h2 class="mx-3">Semua Post</h2>
     <?php if(isLoggedIn()): ?>
-        <a class="d-block mx-3 my-3" href="<?= BASEURL; ?>/posts/addnew">
+        <a class="d-block mx-3 my-3" href="<?= BASEURL; ?>/Posts/addnew">
             <button type="button" class="btn btn-primary">Write New Post</button>
         </a>
     <?php endif; ?>
@@ -12,14 +12,14 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="<?= BASEURL; ?>/posts/read/<?= $post['name']; ?>"><?= $post['title']; ?></a>
+                        <a href="<?= BASEURL; ?>/Posts/read/<?= $post['name']; ?>"><?= $post['title']; ?></a>
                     </h5>
                     <p class="card-text"><?= SUBSTR($post['content'], 0, 100); ?>...</p>
                     <?php if(isLoggedIn()): ?>
-                    <a href="<?= BASEURL; ?>/posts/edit/<?= $post['id']; ?>" class="mr-2">
+                    <a href="<?= BASEURL; ?>/Posts/edit/<?= $post['id']; ?>" class="mr-2">
                         <button type="button" class="btn btn-warning">Edit</button>
                     </a>
-                    <a href="<?= BASEURL; ?>/posts/delete/<?= $post['id']; ?>">
+                    <a href="<?= BASEURL; ?>/Posts/delete/<?= $post['id']; ?>">
                         <button type="button" class="btn btn-danger">Delete</button>
                     </a>
                     <?php endif; ?>

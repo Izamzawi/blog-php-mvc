@@ -15,6 +15,6 @@
         </div>
         <button type="submit" name="signin" id="signin" class="btn btn-primary" style="width: 400px; font-size: 20px">Signin</button>
 
-        <p class="mt-3">Not registered yet? <a href="<?= BASEURL; ?>/admins/register">Create an account.</a></p>
+        <p class="mt-3">Not registered yet? <a href="<?= BASEURL; ?>/Admins/register">Create an account.</a></p>
     </form>
 </div>

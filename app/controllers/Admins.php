@@ -84,7 +84,7 @@ class Admins extends Controller {
                 // Register admin from model function
                 if($this->adminModel->register($data)){
                     // Redirect to the login page
-                    header('location: ' . BASEURL . '/admins/signin');
+                    header('location: ' . BASEURL . '/Admins/signin');
                 } else {
                     die('Something went wrong.');
                 }
@@ -159,7 +159,7 @@ class Admins extends Controller {
         $_SESSION['admin_id'] = $admin['id'];
         $_SESSION['username'] = $admin['username'];
         $_SESSION['email'] = $admin['email'];
-        header( 'location:' . BASEURL . '/home' );
+        header( 'location:' . BASEURL . '/Home' );
     }
 
     // Clear session after logout
@@ -167,7 +167,7 @@ class Admins extends Controller {
         unset($_SESSION['admin_id']);
         unset($_SESSION['username']);
         unset($_SESSION['email']);
-        header( 'location:' . BASEURL . '/home' );
+        header( 'location:' . BASEURL . '/Home' );
     }
 }
 

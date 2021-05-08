@@ -41,7 +41,6 @@ class App{
 
         // Run controller & method, send any params if available
         call_user_func_array([$this->controller, $this->method], $this->params);
-
     }
 
     // Format the URL as 3 section
@@ -56,14 +55,5 @@ class App{
     }
   
 }
-
-
-
-
-
-
-
-
-
 
 ?>

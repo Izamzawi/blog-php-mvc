@@ -1,8 +1,8 @@
 <?php 
 
 // URL absolute
-// define('BASEURL', 'https://blog-php-mvc.herokuapp.com');
-define('BASEURL', 'http://localhost/blog-php-mvc');
+define('BASEURL', 'https://blog-php-mvc.herokuapp.com');
+// define('BASEURL', 'http://localhost/blog-php-mvc');
 define('APPURL', dirname(dirname(__FILE__)));
 
 // Database parameter

@@ -70,7 +70,6 @@ class Posts extends Controller{
                     die("Something went wrong, please try again!");
                 }
             }
-
         }
 
         $this->view('templates/header', $data);
@@ -147,7 +146,6 @@ class Posts extends Controller{
             die('Something went wrong!');
         }
     }
-
 }
 
 ?>

@@ -74,6 +74,6 @@ class Post_model{
 
         return $this->db->rowCount();
     }
-
 }
+
 ?>

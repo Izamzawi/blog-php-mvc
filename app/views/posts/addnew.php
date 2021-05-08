@@ -1,5 +1,4 @@
 <div class="container mx-auto" style="width: 625px;">
-
     <div class="editor">
         <h2 class="text-center my-3">Write your post here</h2>
 
@@ -18,13 +17,9 @@
             </span>
          </p>
     </div>
-
 </div>
 
 <!-- CKeditor to textarea -->
 <script>
     CKEDITOR.replace( 'content' );
 </script>
-
-</body>
-</html>

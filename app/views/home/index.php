@@ -7,7 +7,6 @@
     </div>
 
     <div class="container-lg">
-
         <!-- This PHP tag will loop through post database and the $i variable will limit the shown posts to 5 -->
         <?php $i=1; ?>
         <?php foreach($data['posts'] as $post ) : if($i > 5) break; ?>
@@ -26,7 +25,5 @@
         </div>
         <?php $i++; ?>
         <?php endforeach; ?>
-
     </div>
-
 </div>

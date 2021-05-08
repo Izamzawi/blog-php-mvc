@@ -54,3 +54,5 @@ class Admin_model {
         }
     }
 }
+
+?>

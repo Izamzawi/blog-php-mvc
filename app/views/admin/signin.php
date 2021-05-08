@@ -17,7 +17,4 @@
 
         <p class="mt-3">Not registered yet? <a href="<?= BASEURL; ?>/admins/register">Create an account.</a></p>
     </form>
-
-
-    
 </div>

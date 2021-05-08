@@ -9,5 +9,4 @@ class About extends Controller{
     }
 }
 
-
 ?>

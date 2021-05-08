@@ -10,6 +10,4 @@ class Home extends Controller{
     }    
 }
 
-
-
 ?>

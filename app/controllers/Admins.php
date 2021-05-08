@@ -98,7 +98,7 @@ class Admins extends Controller {
 
     public function signin(){
         $data = [
-            'page' => 'Register New Admin',
+            'page' => 'Admin Sign-in',
             'username' => '',
             'password' => '',
             'usernameError' => '',
@@ -141,7 +141,7 @@ class Admins extends Controller {
 
         } else{
             $data = [
-                'page' => 'Register New Admin',
+                'page' => 'Admin Sign-in',
                 'username' => '',
                 'password' => '',
                 'usernameError' => '',
@@ -170,3 +170,5 @@ class Admins extends Controller {
         header( 'location:' . BASEURL . '/home' );
     }
 }
+
+?>

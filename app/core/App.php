@@ -3,7 +3,6 @@
 /* App class, set default controller and method
    Load accessed controller and method
    URL Format = controller/method/params
-
 */
 class App{
     protected $controller = 'Home';
@@ -53,7 +52,6 @@ class App{
             return $url;
         }
     }
-  
 }
 
 ?>
